@@ -1,7 +1,11 @@
 <template>
   <v-app>
     <v-main>
-      <HelloWorld/>
+      <div id="nav">
+        <router-link to="/">献立</router-link>
+        <router-link to="/shoppinglist">買い物リスト</router-link>
+      </div>
+      <router-view/>
     </v-main>
   </v-app>
 </template>
