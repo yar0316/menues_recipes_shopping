@@ -1,0 +1,3 @@
+<template>
+    <h1>レシピ詳細画面</h1>
+</template>
