@@ -1,5 +1,6 @@
 <template>
     <h1>レシピ詳細画面</h1>
+    <amplify-sign-out></amplify-sign-out>
 </template>
 
 <script lang="ts">

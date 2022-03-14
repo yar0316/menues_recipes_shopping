@@ -10,6 +10,11 @@
       "StackName": "amplify-menurecipeshopping-dev-00016",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:871371190260:stack/amplify-menurecipeshopping-dev-00016/778edcc0-a3a7-11ec-93fe-0e72bc1cdd59",
       "AmplifyAppId": "d22d8ha0ky2c98"
+    },
+    "categories": {
+      "auth": {
+        "menurecipeshopping17a9d162": {}
+      }
     }
   }
 }
