@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "menurecipeshopping17a9d162_identitypool_17a9d162",
+    "identityPoolName": "menurecipeshopping908ad7a7_identitypool_908ad7a7",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "menure17a9d162",
-    "userPoolName": "menurecipeshopping17a9d162_userpool_17a9d162",
+    "resourceNameTruncated": "menure908ad7a7",
+    "userPoolName": "menurecipeshopping908ad7a7_userpool_908ad7a7",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,22 +31,15 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "menure17a9d162_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "menure908ad7a7_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "17a9d162",
-    "resourceName": "menurecipeshopping17a9d162",
+    "sharedId": "908ad7a7",
+    "resourceName": "menurecipeshopping908ad7a7",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "defaultSocial",
-    "hostedUI": true,
+    "useDefault": "default",
     "usernameAttributes": [
       "email"
     ],
-    "hostedUIDomainName": "menurecipeshopping17a9d162-17a9d162",
-    "authProvidersUserPool": [
-      "Google"
-    ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
