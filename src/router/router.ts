@@ -29,11 +29,6 @@ const routes = [
         path: '/shoppinglist',
         name: 'ShoppingList',
         component: ShoppingList
-    },
-    {
-        path: '/signin',
-        name: 'SignIn',
-        component: SignIn
     }
 ]
 

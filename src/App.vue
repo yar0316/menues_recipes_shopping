@@ -45,7 +45,6 @@
 
         <v-main v-if="route === 'authenticated'">
           <router-view/>
-          <h2>Hello {{user?.username}}!</h2>
         </v-main>
 
       </authenticator>
