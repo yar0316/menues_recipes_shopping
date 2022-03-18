@@ -18,7 +18,7 @@
                 >
                     <v-card-header>
                         <v-card-header-text>
-                            <v-card-title>{{ getDate(MM_DD_dd, n-1) }}</v-card-title>
+                            <v-card-title>{{ state.menues[n-1].date }}</v-card-title>
                         </v-card-header-text>
                     </v-card-header>
                     
@@ -83,7 +83,7 @@ export default defineComponent({
         const state = reactive({
             menues: [
                 {
-                    date: '2022/3/29',
+                    date: '3/19(金)',
                     breakfast: [
                         {
                             id: 0,
