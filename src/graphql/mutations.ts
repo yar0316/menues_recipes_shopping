@@ -2,261 +2,153 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = /* GraphQL */ `
-  mutation CreateBlog(
-    $input: CreateBlogInput!
-    $condition: ModelBlogConditionInput
+export const createMenu = /* GraphQL */ `
+  mutation CreateMenu(
+    $input: CreateMenuInput!
+    $condition: ModelMenuConditionInput
   ) {
-    createBlog(input: $input, condition: $condition) {
+    createMenu(input: $input, condition: $condition) {
       id
       name
-      posts {
+      date
+      type
+      dishes {
         items {
-          id
-          title
-          createdAt
-          updatedAt
-          blogPostsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateBlog = /* GraphQL */ `
-  mutation UpdateBlog(
-    $input: UpdateBlogInput!
-    $condition: ModelBlogConditionInput
-  ) {
-    updateBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          createdAt
-          updatedAt
-          blogPostsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteBlog = /* GraphQL */ `
-  mutation DeleteBlog(
-    $input: DeleteBlogInput!
-    $condition: ModelBlogConditionInput
-  ) {
-    deleteBlog(input: $input, condition: $condition) {
-      id
-      name
-      posts {
-        items {
-          id
-          title
-          createdAt
-          updatedAt
-          blogPostsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      blogPostsId
-    }
-  }
-`;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    updatePost(input: $input, condition: $condition) {
-      id
-      title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      blogPostsId
-    }
-  }
-`;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    deletePost(input: $input, condition: $condition) {
-      id
-      title
-      blog {
-        id
-        name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-      blogPostsId
-    }
-  }
-`;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      post {
-        id
-        title
-        blog {
           id
           name
           createdAt
           updatedAt
+          menuDishesId
         }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        blogPostsId
+        nextToken
       }
-      content
       createdAt
       updatedAt
-      postCommentsId
     }
   }
 `;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
+export const updateMenu = /* GraphQL */ `
+  mutation UpdateMenu(
+    $input: UpdateMenuInput!
+    $condition: ModelMenuConditionInput
   ) {
-    updateComment(input: $input, condition: $condition) {
+    updateMenu(input: $input, condition: $condition) {
       id
-      post {
-        id
-        title
-        blog {
+      name
+      date
+      type
+      dishes {
+        items {
           id
           name
           createdAt
           updatedAt
+          menuDishesId
         }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        blogPostsId
+        nextToken
       }
-      content
       createdAt
       updatedAt
-      postCommentsId
     }
   }
 `;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
+export const deleteMenu = /* GraphQL */ `
+  mutation DeleteMenu(
+    $input: DeleteMenuInput!
+    $condition: ModelMenuConditionInput
   ) {
-    deleteComment(input: $input, condition: $condition) {
+    deleteMenu(input: $input, condition: $condition) {
       id
-      post {
-        id
-        title
-        blog {
+      name
+      date
+      type
+      dishes {
+        items {
           id
           name
           createdAt
           updatedAt
+          menuDishesId
         }
-        comments {
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createDish = /* GraphQL */ `
+  mutation CreateDish(
+    $input: CreateDishInput!
+    $condition: ModelDishConditionInput
+  ) {
+    createDish(input: $input, condition: $condition) {
+      id
+      menu {
+        id
+        name
+        date
+        type
+        dishes {
           nextToken
         }
         createdAt
         updatedAt
-        blogPostsId
       }
-      content
+      name
       createdAt
       updatedAt
-      postCommentsId
+      menuDishesId
+    }
+  }
+`;
+export const updateDish = /* GraphQL */ `
+  mutation UpdateDish(
+    $input: UpdateDishInput!
+    $condition: ModelDishConditionInput
+  ) {
+    updateDish(input: $input, condition: $condition) {
+      id
+      menu {
+        id
+        name
+        date
+        type
+        dishes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      name
+      createdAt
+      updatedAt
+      menuDishesId
+    }
+  }
+`;
+export const deleteDish = /* GraphQL */ `
+  mutation DeleteDish(
+    $input: DeleteDishInput!
+    $condition: ModelDishConditionInput
+  ) {
+    deleteDish(input: $input, condition: $condition) {
+      id
+      menu {
+        id
+        name
+        date
+        type
+        dishes {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      name
+      createdAt
+      updatedAt
+      menuDishesId
     }
   }
 `;

@@ -2,18 +2,20 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
+export const getMenu = /* GraphQL */ `
+  query GetMenu($id: ID!) {
+    getMenu(id: $id) {
       id
       name
-      posts {
+      date
+      type
+      dishes {
         items {
           id
-          title
+          name
           createdAt
           updatedAt
-          blogPostsId
+          menuDishesId
         }
         nextToken
       }
@@ -22,17 +24,19 @@ export const getBlog = /* GraphQL */ `
     }
   }
 `;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
+export const listMenus = /* GraphQL */ `
+  query ListMenus(
+    $filter: ModelMenuFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listMenus(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
-        posts {
+        date
+        type
+        dishes {
           nextToken
         }
         createdAt
@@ -42,110 +46,49 @@ export const listBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+export const getDish = /* GraphQL */ `
+  query GetDish($id: ID!) {
+    getDish(id: $id) {
       id
-      title
-      blog {
+      menu {
         id
         name
-        posts {
+        date
+        type
+        dishes {
           nextToken
         }
         createdAt
         updatedAt
       }
-      comments {
-        items {
-          id
-          content
-          createdAt
-          updatedAt
-          postCommentsId
-        }
-        nextToken
-      }
+      name
       createdAt
       updatedAt
-      blogPostsId
+      menuDishesId
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listDishes = /* GraphQL */ `
+  query ListDishes(
+    $filter: ModelDishFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listDishes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
-        blog {
+        menu {
           id
           name
+          date
+          type
           createdAt
           updatedAt
         }
-        comments {
-          nextToken
-        }
+        name
         createdAt
         updatedAt
-        blogPostsId
-      }
-      nextToken
-    }
-  }
-`;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
-      id
-      post {
-        id
-        title
-        blog {
-          id
-          name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-        blogPostsId
-      }
-      content
-      createdAt
-      updatedAt
-      postCommentsId
-    }
-  }
-`;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        post {
-          id
-          title
-          createdAt
-          updatedAt
-          blogPostsId
-        }
-        content
-        createdAt
-        updatedAt
-        postCommentsId
+        menuDishesId
       }
       nextToken
     }
