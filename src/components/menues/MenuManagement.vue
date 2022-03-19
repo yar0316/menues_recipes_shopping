@@ -60,7 +60,16 @@
                                 :value="dinner.id"
                             ></v-list-item>
                         </v-list-group>
-                     </v-list>
+                    </v-list>
+                    
+                    <v-card-actions class="justify-end">
+                        <v-btn
+                            rounded
+                            text
+                            icon="mdi-plus"
+                            color="primary"
+                        ></v-btn>
+                    </v-card-actions>
                 </v-card>
             </v-col>
         </v-row>
@@ -81,6 +90,9 @@ export default defineComponent({
         const MM_DD_dd: string = 'MM/DD (dd)'
         const referenceDate: dayjs.Dayjs = dayjs().locale('ja')
         const state = reactive({
+            bfValue: true,
+            lcValue: true,
+            dnValue: true,
             menues: [
                 {
                     date: '3/19(金)',
