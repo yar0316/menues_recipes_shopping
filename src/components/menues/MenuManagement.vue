@@ -18,7 +18,7 @@
                 >
                     <v-card-header>
                         <v-card-header-text>
-                            <v-card-title>{{ state.menues[n-1].date }}</v-card-title>
+                            <v-card-title>{{ state.menus[n-1].date }}</v-card-title>
                         </v-card-header-text>
                     </v-card-header>
                     
@@ -31,7 +31,7 @@
                             </template>
 
                             <v-list-item
-                                v-for="breakfast in state.menues[n-1].breakfast"
+                                v-for="breakfast in state.menus[n-1].breakfast"
                                 :title="breakfast.name"
                                 :value="breakfast.id"
                             ></v-list-item>
@@ -43,7 +43,7 @@
                             </template>
 
                             <v-list-item
-                                v-for="lunch in state.menues[n-1].lunch"
+                                v-for="lunch in state.menus[n-1].lunch"
                                 :title="lunch.name"
                                 :value="lunch.id"
                             ></v-list-item>
@@ -55,7 +55,7 @@
                             </template>
 
                             <v-list-item
-                                v-for="dinner in state.menues[n-1].dinner"
+                                v-for="dinner in state.menus[n-1].dinner"
                                 :title="dinner.name"
                                 :value="dinner.id"
                             ></v-list-item>
@@ -63,12 +63,26 @@
                     </v-list>
                     
                     <v-card-actions class="justify-end">
-                        <v-btn
-                            rounded
-                            text
-                            icon="mdi-plus"
-                            color="primary"
-                        ></v-btn>
+                        <v-dialog
+                            v-model="state.dialog"
+                            persistant
+                            transition="dialog-bottom-transition"
+                        >
+                            <template v-slot:activator="{ props }">
+                                <v-btn
+                                    rounded
+                                    text
+                                    icon="mdi-plus"
+                                    color="primary"
+                                    v-bind="props"
+                                ></v-btn>
+                            </template>
+                            <v-card>
+                                <v-card-title>
+                                    <span class="text-h5">献立追加</span>
+                                </v-card-title>
+                            </v-card>
+                        </v-dialog>
                     </v-card-actions>
                 </v-card>
             </v-col>
@@ -90,10 +104,8 @@ export default defineComponent({
         const MM_DD_dd: string = 'MM/DD (dd)'
         const referenceDate: dayjs.Dayjs = dayjs().locale('ja')
         const state = reactive({
-            bfValue: true,
-            lcValue: true,
-            dnValue: true,
-            menues: [
+            dialog: false,
+            menus: [
                 {
                     date: '3/19(金)',
                     breakfast: [
