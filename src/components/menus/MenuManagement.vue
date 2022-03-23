@@ -18,7 +18,7 @@
                 >
                     <v-card-header>
                         <v-card-header-text>
-                            <v-card-title>{{ state.menus[n-1].date }}</v-card-title>
+                            <v-card-title>{{ menus[n-1].date }}</v-card-title>
                         </v-card-header-text>
                     </v-card-header>
                     
@@ -31,7 +31,7 @@
                             </template>
 
                             <v-list-item
-                                v-for="breakfast in state.menus[n-1].breakfast"
+                                v-for="breakfast in menus[n-1].breakfast"
                                 :title="breakfast.name"
                                 :value="breakfast.id"
                             ></v-list-item>
@@ -43,7 +43,7 @@
                             </template>
 
                             <v-list-item
-                                v-for="lunch in state.menus[n-1].lunch"
+                                v-for="lunch in menus[n-1].lunch"
                                 :title="lunch.name"
                                 :value="lunch.id"
                             ></v-list-item>
@@ -55,7 +55,7 @@
                             </template>
 
                             <v-list-item
-                                v-for="dinner in state.menus[n-1].dinner"
+                                v-for="dinner in menus[n-1].dinner"
                                 :title="dinner.name"
                                 :value="dinner.id"
                             ></v-list-item>
@@ -63,26 +63,13 @@
                     </v-list>
                     
                     <v-card-actions class="justify-end">
-                        <v-dialog
-                            v-model="state.dialog"
-                            persistant
-                            transition="dialog-bottom-transition"
-                        >
-                            <template v-slot:activator="{ props }">
-                                <v-btn
-                                    rounded
-                                    text
-                                    icon="mdi-plus"
-                                    color="primary"
-                                    v-bind="props"
-                                ></v-btn>
-                            </template>
-                            <v-card>
-                                <v-card-title>
-                                    <span class="text-h5">献立追加</span>
-                                </v-card-title>
-                            </v-card>
-                        </v-dialog>
+                        <v-btn
+                            rounded
+                            text
+                            icon="mdi-plus"
+                            color="primary"
+                            to="/menucreate"
+                        ></v-btn>
                     </v-card-actions>
                 </v-card>
             </v-col>
@@ -91,7 +78,7 @@
 </template>
 
 <script lang="ts">
-import { reactive, ref, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 import dayjs from "dayjs"
 import 'dayjs/locale/ja'
 
@@ -103,8 +90,44 @@ export default defineComponent({
         const YYYY_MM_DD_dd: string = 'YYYY/MM/DD (dd)'
         const MM_DD_dd: string = 'MM/DD (dd)'
         const referenceDate: dayjs.Dayjs = dayjs().locale('ja')
-        const state = reactive({
+
+        return {
+            YYYY_MM_DD_dd,
+            MM_DD_dd,
+            referenceDate,
+        }
+
+    },
+
+    methods: {
+        getDate(format: string, offset: number = 0) {
+            if (offset > 0) {
+                return this.referenceDate.add(offset, 'day').format(format)
+            } else if (offset < 0) {
+                return this.referenceDate.subtract(Math.abs(offset), 'day').format(format)
+            } else
+                return this.referenceDate.format(format)
+        }
+    },
+
+    data () {
+        return {
             dialog: false,
+            tab: null,
+            types:[
+                {
+                    label: "朝食",
+                    value: "breakfast"
+                },
+                {
+                    label: "昼食",
+                    value: "lunch"
+                },
+                {
+                    label: "夕食",
+                    value: "dinner"
+                }
+            ],
             menus: [
                 {
                     date: '3/19(金)',
@@ -331,25 +354,6 @@ export default defineComponent({
                     ]
                 }
             ]
-        })
-
-        return {
-            YYYY_MM_DD_dd,
-            MM_DD_dd,
-            referenceDate,
-            state
-        }
-
-    },
-
-    methods: {
-        getDate(format: string, offset: number = 0) {
-            if (offset > 0) {
-                return this.referenceDate.add(offset, 'day').format(format)
-            } else if (offset < 0) {
-                return this.referenceDate.subtract(Math.abs(offset), 'day').format(format)
-            } else
-                return this.referenceDate.format(format)
         }
     }
 })

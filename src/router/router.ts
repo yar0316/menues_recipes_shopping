@@ -1,9 +1,9 @@
 import * as vueRouter from 'vue-router'
-import MenuManagement from '../components/menues/MenuManagement.vue'
+import MenuManagement from '../components/menus/MenuManagement.vue'
 import RecipeDetail from '../components/recipes/RecipeDetail.vue'
 import RecipeList from '../components/recipes/RecipeList.vue'
 import ShoppingList from '../components/shoppings/ShoppingList.vue'
-import SignIn from '../components/SignIn.vue'
+import MenuCreate from '../components/menus/MenuCreate.vue'
 
 const routes = [
     {
@@ -29,6 +29,11 @@ const routes = [
         path: '/shoppinglist',
         name: 'ShoppingList',
         component: ShoppingList
+    },
+    {
+        path: '/menucreate',
+        name: 'MenuCreate',
+        component: MenuCreate
     }
 ]
 
